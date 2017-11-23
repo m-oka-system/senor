@@ -13,5 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require toastr
 //= require turbolinks
 //= require_tree .
+
+// torstrのオプション
+toastr.options = {
+  "positionClass": "toast-top-right",
+  "timeOut": "2000",
+};

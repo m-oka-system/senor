@@ -4,7 +4,8 @@
       <h2>ユーザー登録</h2>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
+      <%= render 'layouts/deviseErrMsg' %>
+      <%#= devise_error_messages! %>
 
       <div class="form-group">
         <%= f.label "Eメール", class:"control-label" %>
