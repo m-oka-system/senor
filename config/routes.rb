@@ -1,4 +1,5 @@
 Senor::Application.routes.draw do
+  get "dashbords/home"
   devise_for :users
 
 # ログイン画面をホームにする
