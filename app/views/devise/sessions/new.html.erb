@@ -1,16 +1,15 @@
-<h2>ログイン</h2>
-
 <div class="container">
   <div class="row">
     <div class="col-md-4 col-md-offset-4">
+    <h2>ログイン</h2>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-group">
-        <%= f.label "Eメール" %><br/>
+        <%= f.label "Eメール", class:"control-label" %>
         <%= f.email_field :email, autofocus: true, class:"form-control" %>
       </div>
 
       <div class="form-group">
-        <%= f.label "パスワード" %><br/>
+        <%= f.label "パスワード", class:"control-label" %>
         <%= f.password_field :password, autocomplete: "off", class:"form-control" %>
       </div>
 
