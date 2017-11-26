@@ -2,11 +2,6 @@ class RegistrationsController < Devise::RegistrationsController
   # deviseでユーザーの名前の登録を許可する
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  # ログイン後にリダイレクトするパスを変更
-  def after_sign_in_path_for(resource)
-    dashbords_home_path
-  end
-
   # アカウント編集後にリダイレクトするパスを変更
   def after_update_path_for(resource)
     dashbords_home_path
