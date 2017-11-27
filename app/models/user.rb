@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   validates :name,  presence: true, length: { maximum: 50 }
 
+  # Facebookログイン
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
@@ -24,6 +25,20 @@ class User < ActiveRecord::Base
         user.email = data["email"] if user.email.blank?
       end
     end
+  end
+
+  # アカウント編集画面で現在のパスワードの入力を不要とする
+  def update_without_current_password(params, *options)
+    params.delete(:current_password)
+
+    if params[:password].blank? && params[:password_confirmation].blank?
+      params.delete(:password)
+      params.delete(:password_confirmation)
+    end
+
+    result = update_attributes(params, *options)
+    clean_up_passwords
+    result
   end
 
 end

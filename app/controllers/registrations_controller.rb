@@ -17,7 +17,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   # アカウント編集画面で現在のパスワードの入力を不要とする
   def update_resource(resource, params)
-    resource.update_without_password(params)
+    resource.update_without_current_password(params)
   end
 
   private
