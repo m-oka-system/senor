@@ -5,6 +5,8 @@ Senor::Application.routes.draw do
     registrations: "registrations"
   }
 
+  resources :users, only: [:index, :destroy]
+
 # ログイン画面をホームにする
   devise_scope :user do
     root :to => "devise/sessions#new"
