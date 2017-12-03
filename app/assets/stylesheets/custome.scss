@@ -10,6 +10,15 @@
             box-sizing: border-box;
 }
 
+// 見出し
 h2{
   margin-bottom: 50px;
+}
+// 見出しの高さを固定
+.flex{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
 }

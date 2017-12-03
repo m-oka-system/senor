@@ -1,0 +1,20 @@
+<tr>
+  <td><%= customer.id %></td>
+  <td><%= customer.customer_name %></td>
+  <td><%= customer.business %></td>
+  <td><%= customer.phone_number %></td>
+  <td><%= l customer.created_at, format: :default %></td>
+  <td><%= user.admin %></td>
+
+  <!-- 管理者の場合は、編集・削除ボタンを表示 -->
+  <% if current_user.admin? %>
+    <td class="text-center">
+      <%= link_to '編集', edit_customer_path(customer), class: "btn btn-primary btn-xs" %>
+    </td>
+    <td class="text-center">
+      <%= link_to '削除', user, method: :delete, data: { confirm: '削除してもよろしいですか？' }, class: "btn btn-danger btn-xs" %>
+    </td>
+  <% else %>
+    <td></td>
+  <% end %>
+</tr>

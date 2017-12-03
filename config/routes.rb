@@ -1,4 +1,5 @@
 Senor::Application.routes.draw do
+
   get "dashbords/home"
   devise_for :users, :controllers => {
     omniauth_callbacks: "users/omniauth_callbacks",
@@ -6,6 +7,7 @@ Senor::Application.routes.draw do
   }
 
   resources :users, only: [:index, :destroy]
+  resources :customers
 
 # ログイン画面をホームにする
   devise_scope :user do
