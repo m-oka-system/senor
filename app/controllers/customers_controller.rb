@@ -8,8 +8,29 @@ class CustomersController < ApplicationController
   end
 
   def new
+    @customer = Customer.new
+  end
+
+  def create
+    @customer = Customer.new(customer_params)
+    @customer.save
+    flash[:success] = "顧客を登録しました。"
+    redirect_to customers_url
   end
 
   def edit
   end
+
+  def destroy
+    @customer = Customer.find(params[:id]).destroy
+    flash[:success] = "顧客を削除しました。"
+    redirect_to customers_url
+  end
+
+  private
+
+  def customer_params
+    params.require(:customer).permit(:customer_name, :postal_code, :business, :prefectures, :city, :town_name, :phone_number, :fax_number)
+  end
+
 end
