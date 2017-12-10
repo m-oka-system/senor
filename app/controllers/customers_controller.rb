@@ -1,4 +1,7 @@
 class CustomersController < ApplicationController
+
+  before_action :authenticate_user!
+
   def show
     @customer = Customer.find(params[:id])
   end
@@ -13,9 +16,12 @@ class CustomersController < ApplicationController
 
   def create
     @customer = Customer.new(customer_params)
-    @customer.save
-    flash[:success] = "顧客を登録しました。"
-    redirect_to customers_url
+    if @customer.save
+      flash[:success] = "顧客を登録しました。"
+      redirect_to customers_url
+    else
+      render :new
+    end
   end
 
   def edit

@@ -203,3 +203,10 @@ ja:
       long: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
       short: "%y/%m/%d %H:%M"
     pm: 午後
+
+# モデルのバリデーションエラーメッセージを日本語化
+  attributes:
+    # Customerモデル
+    customer_name: 会社名
+    business: 事業
+    phone_number: 電話番号
