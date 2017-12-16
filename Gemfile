@@ -6,6 +6,7 @@ gem 'bootstrap-sass', '3.3.1'
 gem 'devise', '3.4.1'
 gem 'toastr-rails'
 gem 'omniauth-facebook'
+gem 'carrierwave'
 
 group :development do
   gem 'sqlite3', '1.3.9'
