@@ -7,7 +7,10 @@ Senor::Application.routes.draw do
   }
 
   resources :users, only: [:index, :destroy]
-  resources :customers
+  resources :customers do
+    resources :stores
+  end
+
 
 # ログイン画面をホームにする
   devise_scope :user do

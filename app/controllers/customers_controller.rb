@@ -18,7 +18,7 @@ class CustomersController < ApplicationController
     @customer = Customer.new(customer_params)
     if @customer.save
       flash[:success] = "顧客を登録しました。"
-      redirect_to customers_url
+      redirect_to @customer
     else
       render :new
     end

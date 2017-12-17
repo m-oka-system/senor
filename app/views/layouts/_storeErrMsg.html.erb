@@ -1,0 +1,8 @@
+<!-- deviseにエラーがある時 -->
+<% unless @store.errors.empty? %>
+  <script type= "text/javascript">
+    <% @store.errors.full_messages.each do |msg| %>
+      toastr.error('<%= msg %>');
+    <% end %>
+  </script>
+<% end %>
