@@ -3,17 +3,19 @@ class StoresController < ApplicationController
     before_action :authenticate_user!
 
     def show
-      @store = Store.find(params[:id])
+      @customer = Customer.find(params[:customer_id])
+      @store = @customer.stores.find(params[:id])
     end
 
     def index
-      @store = Store.all
+      @customer = Customer.find(params[:customer_id])
+      @store = @customer.stores
     end
 
     def new
-      @store = Store.new
-      # @customer = Customer.find(params[:customer_id])
-      # @store = @customer.stores.build
+      # @store = Store.new
+      @customer = Customer.find(params[:customer_id])
+      @store = @customer.stores.build
       # p "------------------------------"
       # p @customer
       # p "------------------------------"
@@ -21,11 +23,12 @@ class StoresController < ApplicationController
     end
 
     def create
-      # @customer = Customer.find(params[:id])
+      @customer = Customer.find(params[:customer_id])
       @store = @customer.stores.build(store_params)
       if @store.save
         flash[:success] = "店舗を登録しました。"
-        redirect_to store_url
+        # render :index
+        redirect_to [@customer, @store]
       else
         render :new
       end

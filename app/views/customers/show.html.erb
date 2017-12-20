@@ -51,7 +51,8 @@
           <th colspan="2"></th>
         </tr>
         <!-- テーブルのデータ部はパーシャルへ -->
-        <%#= render @customer %>
+        <%#= render template: "stores/index" %>
+        <%= link_to "店舗一覧を表示する", customer_stores_path(@customer, @store) %>
       </table>
     </div>
   </div>
