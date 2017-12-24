@@ -31,12 +31,33 @@ class StoresController < ApplicationController
     end
 
     def edit
+      @customer = Customer.find(params[:customer_id])
+      @store = Store.find(params[:id])
+    end
+
+    def update
+      @customer = Customer.find(params[:customer_id])
+      @store = Store.find(params[:id])
+      @store.assign_attributes(params[store_params])
+      p "------------------------------"
+      p @customer
+      p "------------------------------"
+      p @store
+      p "------------------------------"
+      if @store.save
+        flash[:success] = "店舗を更新しました。"
+        # render :index
+        redirect_to [@customer, @store]
+      else
+        render :edit
+      end
     end
 
     def destroy
+      @customer = Customer.find(params[:customer_id])
       @store = Store.find(params[:id]).destroy
       flash[:success] = "店舗を削除しました。"
-      redirect_to stores_url
+      redirect_to customer_url
     end
 
     private

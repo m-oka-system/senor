@@ -1,5 +1,5 @@
 class Customer < ActiveRecord::Base
-  has_many :stores
+  has_many :stores, dependent: :destroy
 
   validates :customer_name,  presence: true, length: { maximum: 50 }
   validates :business,  presence: true
