@@ -23,7 +23,6 @@ class StoresController < ApplicationController
       @store = @customer.stores.build(store_params)
       if @store.save
         flash[:success] = "店舗を登録しました。"
-        # render :index
         redirect_to [@customer, @store]
       else
         render :new
@@ -33,21 +32,17 @@ class StoresController < ApplicationController
     def edit
       @customer = Customer.find(params[:customer_id])
       @store = Store.find(params[:id])
+      #@store = @customer.stores.find(params[:id])
+
     end
 
     def update
       @customer = Customer.find(params[:customer_id])
-      @store = Store.find(params[:id])
-      @store.assign_attributes(params[store_params])
-      p "------------------------------"
-      p @customer
-      p "------------------------------"
-      p @store
-      p "------------------------------"
-      if @store.save
+      @store = @customer.stores.find(params[:id])
+      if @store.update_attributes(store_params) #update_attributesはSaveもする
         flash[:success] = "店舗を更新しました。"
-        # render :index
         redirect_to [@customer, @store]
+        # redirect_to customer_store_url(@store.customer_id, @store.id)
       else
         render :edit
       end
@@ -57,7 +52,7 @@ class StoresController < ApplicationController
       @customer = Customer.find(params[:customer_id])
       @store = Store.find(params[:id]).destroy
       flash[:success] = "店舗を削除しました。"
-      redirect_to customer_url
+      redirect_to customers_url
     end
 
     private
@@ -65,5 +60,4 @@ class StoresController < ApplicationController
     def store_params
       params.require(:store).permit(:store_code, :store_name, :postal_code, :prefectures, :city, :town_name, :phone_number, :fax_number, :business_hours_start, :business_hours_end, :pos_type, :ip_address, :remarks)
     end
-
 end

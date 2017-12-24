@@ -13,9 +13,11 @@
           <th >登録日時</th>
           <th colspan="2"></th>
         </tr>
+<%= @customer.customer_name %>
         <% @store.each do |store| %>
         <tr>
           <td><%= link_to store.store_code, customer_store_path(store.customer_id, store.id) %></td>
+          <!-- <td><%= link_to store.store_code, customer_store_path(@customer, @store) %></td> -->
           <td><%= store.store_name %></td>
           <td><%= store.business_hours_start %></td>
           <td><%= store.business_hours_end %></td>
