@@ -4,7 +4,8 @@ class StoresController < ApplicationController
 
     def show
       @customer = Customer.find(params[:customer_id])
-      @store = @customer.stores.find(params[:id])
+      # @store = @customer.stores.find(params[:id])
+      @store = Store.find(params[:id])
     end
 
     def index
@@ -13,13 +14,8 @@ class StoresController < ApplicationController
     end
 
     def new
-      # @store = Store.new
       @customer = Customer.find(params[:customer_id])
       @store = @customer.stores.build
-      # p "------------------------------"
-      # p @customer
-      # p "------------------------------"
-
     end
 
     def create

@@ -2,10 +2,10 @@
 
 <% @store.each do |s| %>
 <ul>
-  <li><%= link_to s.id, customer_store_path(@customer, @store) %></li>
+  <!-- <li><%#= link_to s.id, customer_store_path(@customer, @store) %></li> -->
+  <li><%= link_to s.id, customer_store_path(s.customer_id, s.id) %></li>
   <li><%= s.customer_id %></li>
   <li><%= s.store_code %></li>
   <li><%= s.store_name %></li>
 </ul>
 <% end %>
-<%#= @store.customer_id %>
