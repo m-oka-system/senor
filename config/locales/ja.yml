@@ -208,5 +208,21 @@ ja:
   attributes:
     # Customerモデル
     customer_name: 会社名
+    postal_code: 郵便番号
     business: 事業
+    prefectures: 都道府県
+    city: 市区町村
+    town_name: 町名・番地・建物名
     phone_number: 電話番号
+    fax_number: FAX番号
+    url: HP
+    image: 画像ファイル
+    # Storeモデル
+    customer_id: 顧客ID
+    store_code: 店舗コード
+    store_name: 店舗名
+    business_hours_start: 営業開始時間
+    business_hours_end: 営業終了時間
+    pos_type: POSタイプ
+    ip_address: IPアドレス
+    remarks: 備考

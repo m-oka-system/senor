@@ -26,6 +26,17 @@ class CustomersController < ApplicationController
   end
 
   def edit
+    @customer = Customer.find(params[:id])
+  end
+
+  def update
+    @customer = Customer.find(params[:id])
+    if @customer.update_attributes(customer_params) #update_attributesはSaveもする
+      flash[:success] = "顧客を更新しました。"
+      redirect_to @customer
+    else
+      render :edit
+    end
   end
 
   def destroy
