@@ -7,8 +7,11 @@ Senor::Application.routes.draw do
   }
 
   resources :users, only: [:index, :destroy]
+  # Customer->Store->Ticketで３段階にネスト
   resources :customers do
-    resources :stores
+    resources :stores do
+      resources :tickets
+    end
   end
 
 
