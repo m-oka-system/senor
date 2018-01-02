@@ -48,23 +48,8 @@ ActiveRecord::Schema.define(version: 20180101041859) do
   end
 
   create_table "tickets", force: true do |t|
-    t.string   "store_code",       null: false
-    t.text     "title",            null: false
-    t.string   "status",           null: false
-    t.string   "sender"
-    t.string   "received_user_id"
-    t.string   "assign_user_id"
-    t.date     "receive_date",     null: false
-    t.time     "receive_time",     null: false
-    t.date     "close_date"
-    t.time     "close_time"
-    t.date     "esc_date"
-    t.time     "esc_time"
-    t.date     "limit_date"
-    t.text     "content"
-    t.text     "detail"
-    t.text     "result"
-    t.text     "remarks"
+    t.integer  "store_id",   null: false
+    t.text     "title",      null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

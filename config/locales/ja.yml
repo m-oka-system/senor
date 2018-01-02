@@ -226,3 +226,19 @@ ja:
     pos_type: POSタイプ
     ip_address: IPアドレス
     remarks: 備考
+    # Ticketモデル
+    title: タイトル
+    status: ステータス
+    sender: 問合者
+    received_user_id: 受付者
+    assign_user_id: 担当者
+    receive_date: 受付日
+    receive_time: 受付時刻
+    close_date: 完了日
+    close_time: 完了時刻
+    esc_date: エスカレーション日
+    esc_time: エスカレーション時刻
+    limit_date: 期日
+    content: 問合せ内容
+    detail: 対応内容
+    result: 対応結果

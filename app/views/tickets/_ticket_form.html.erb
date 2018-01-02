@@ -1,0 +1,20 @@
+<%= form_for [@customer, @store, @ticket] do |f| %>
+<%= render 'layouts/errMsg', obj: @ticket %>
+  <table class="table table-bordered ">
+    <tbody>
+
+      <div class="form-group">
+        <tr>
+          <td class="active text-right"><%= f.label :title, class:"control-label" %></td>
+          <td><%= f.text_field :title, autofocus: true, class:"form-control" %></td>
+        </tr>
+      </div>
+
+    </tbody>
+  </table>
+
+  <div class="actions col-md-offset-9 col-md-3">
+    <%= f.submit class:"btn btn-lg btn-primary btn-block" %>
+  </div>
+
+<% end %>

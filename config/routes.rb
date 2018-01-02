@@ -10,10 +10,10 @@ Senor::Application.routes.draw do
   # Customer->Store->Ticketで３段階にネスト
   resources :customers do
     resources :stores do
-      resources :tickets
+      resources :tickets#, only: [:index]
     end
   end
-
+  #resources :tickets
 
 # ログイン画面をホームにする
   devise_scope :user do
