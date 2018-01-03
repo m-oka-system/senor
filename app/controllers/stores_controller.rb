@@ -4,11 +4,13 @@ class StoresController < ApplicationController
 
     def show
       @store = Store.find(params[:id])
+      @ticket = @store.tickets  #indexのviewへインシデント一覧を渡す
     end
 
-    def index
-      @store = @customer.stores
-    end
+    # Customerコントローラのshowアクションへ実装
+    # def index
+    #   @store = @customer.stores
+    # end
 
     def new
       @store = @customer.stores.build
@@ -33,7 +35,6 @@ class StoresController < ApplicationController
       if @store.update_attributes(store_params) #update_attributesはSaveもする
         flash[:success] = "店舗を更新しました。"
         redirect_to [@customer, @store]
-        # redirect_to customer_store_url(@store.customer_id, @store.id)
       else
         render :edit
       end

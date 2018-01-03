@@ -4,7 +4,7 @@ class CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-    @store = @customer.stores
+    @store = @customer.stores #indexのviewへ店舗一覧を渡す
   end
 
   def index

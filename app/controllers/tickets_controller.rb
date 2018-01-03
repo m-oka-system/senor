@@ -2,16 +2,10 @@ class TicketsController < ApplicationController
 
   before_action :authenticate_user!, :set_store
 
-  def index
-    @ticket = @store.tickets
-    # p "------------------------------"
-    # p @customer
-    # p "------------------------------"
-    # p @store
-    # p "------------------------------"
-    # p @ticket
-    # p "------------------------------"
-  end
+  # Storeコントローラのshowアクションへ実装
+  # def index
+  #   @ticket = @store.tickets
+  # end
 
   def show
     @ticket = Ticket.find(params[:id])
