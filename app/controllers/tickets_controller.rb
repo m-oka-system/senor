@@ -1,11 +1,11 @@
 class TicketsController < ApplicationController
 
-  before_action :authenticate_user!, :set_store
+  before_action :authenticate_user!, :set_store, except: [:index]
 
   # Storeコントローラのshowアクションへ実装
-  # def index
-  #   @ticket = @store.tickets
-  # end
+  def index
+    @ticket = Ticket.all
+  end
 
   def show
     @ticket = Ticket.find(params[:id])
@@ -48,7 +48,7 @@ class TicketsController < ApplicationController
   private
 
   def ticket_params
-    params.require(:ticket).permit(:title)
+    params.require(:ticket).permit(:title, :status, :received_user_id, :assign_user_id, :close_date, :close_time, :limit_date, :sender, :receive_date, :receive_time, :content, :detail, :result, :remarks)
   end
 
   def set_store

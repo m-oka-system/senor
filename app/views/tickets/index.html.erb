@@ -5,27 +5,20 @@
       <tr class="success">
         <th>インシデントID</th>
         <th>タイトル</th>
-        <th >登録日時</th>
-        <th colspan="2"></th>
+        <th>ステータス</th>
+        <th >受付日時</th>
+        <th >受付者</th>
+        <th >担当者者</th>
       </tr>
 
       <% @ticket.each do |ticket| %>
         <tr>
           <td><%= ticket.id %></td>
           <td><%= link_to ticket.title, customer_store_ticket_path(ticket.store.customer_id, ticket.store_id, ticket.id) %></td>
-          <td><%= l ticket.created_at, format: :default %></td>
-
-          <!-- 管理者の場合は、編集・削除ボタンを表示 -->
-          <% if current_user.admin? %>
-            <td class="text-center">
-              <%= link_to '編集', edit_customer_store_ticket_path(ticket.store.customer_id, ticket.store_id, ticket.id), class: "btn btn-primary btn-xs" %>
-            </td>
-            <td class="text-center">
-              <%= link_to '削除', [@customer, @store, ticket], method: :delete, data: { confirm: '削除してもよろしいですか？' }, class: "btn btn-danger btn-xs" %>
-            </td>
-          <% else %>
-            <td></td>
-          <% end %>
+          <td><%= ticket.status %></td>
+          <td><%= l ticket.receive_date, format: :default %></td>
+          <td><%= ticket.received_user_id %></td>
+          <td><%= ticket.assign_user_id %></td>
         </tr>
       <% end %>
     </table>

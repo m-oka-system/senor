@@ -7,6 +7,7 @@ gem 'devise', '3.4.1'
 gem 'toastr-rails'
 gem 'omniauth-facebook'
 gem 'carrierwave'
+gem 'jquery-ui-rails'
 
 group :development do
   gem 'sqlite3', '1.3.9'

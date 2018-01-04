@@ -10,6 +10,97 @@
         </tr>
       </div>
 
+      <div class="form-group">
+        <tr>
+          <td class="active text-right"><%= f.label :status, class:"control-label" %></td>
+          <td><%= f.select :status, ["未対応", "対応中", "完了"], {}, { class: 'form-control'} %></td>
+        </tr>
+      </div>
+
+      <div class="form-group">
+        <tr>
+          <td class="active text-right"><%= f.label :sender, class:"control-label" %></td>
+          <td><%= f.text_field :sender, class:"form-control" %></td>
+        </tr>
+      </div>
+
+      <div class="form-group">
+        <tr>
+          <td class="active text-right"><%= f.label :received_user_id, class:"control-label" %></td>
+          <td><%= f.collection_select :received_user_id, User.all, :id, :name, class:"form-control" %></td>
+        </tr>
+      </div>
+
+      <div class="form-group">
+        <tr>
+          <td class="active text-right"><%= f.label :assign_user_id, class:"control-label" %></td>
+          <td><%= f.collection_select :assign_user_id, User.all, :id, :name, class:"form-control" %></td>
+        </tr>
+      </div>
+
+      <div class="form-group">
+        <tr>
+          <td class="active text-right"><%= f.label :receive_date, class:"control-label" %></td>
+          <td><%= f.text_field :receive_date, class:"form-control datepicker" %></td>
+        </tr>
+      </div>
+
+      <div class="form-group">
+        <tr>
+          <td class="active text-right"><%= f.label :receive_time, class:"control-label" %></td>
+          <td><%= f.time_select :receive_time, class:"form-control" %></td>
+        </tr>
+      </div>
+
+      <div class="form-group">
+        <tr>
+          <td class="active text-right"><%= f.label :close_date, class:"control-label" %></td>
+          <td><%= f.text_field :close_date, class:"form-control datepicker" %></td>
+        </tr>
+      </div>
+
+      <div class="form-group">
+        <tr>
+          <td class="active text-right"><%= f.label :close_time, class:"control-label" %></td>
+          <td><%= f.time_select :close_time, size: "100px", class:"form-control" %></td>
+        </tr>
+      </div>
+
+      <div class="form-group">
+        <tr>
+          <td class="active text-right"><%= f.label :limit_date, class:"control-label" %></td>
+          <td><%= f.text_field :limit_date, class:"form-control datepicker" %></td>
+        </tr>
+      </div>
+
+      <div class="form-group">
+        <tr>
+          <td class="active text-right"><%= f.label :content, class:"control-label" %></td>
+          <td><%= f.text_area :content, class:"form-control" %></td>
+        </tr>
+      </div>
+
+      <div class="form-group">
+        <tr>
+          <td class="active text-right"><%= f.label :detail, class:"control-label" %></td>
+          <td><%= f.text_area :detail, class:"form-control" %></td>
+        </tr>
+      </div>
+
+      <div class="form-group">
+        <tr>
+          <td class="active text-right"><%= f.label :result, class:"control-label" %></td>
+          <td><%= f.text_area :result, class:"form-control" %></td>
+        </tr>
+      </div>
+
+      <div class="form-group">
+        <tr>
+          <td class="active text-right"><%= f.label :remarks, class:"control-label" %></td>
+          <td><%= f.text_field :remarks, class:"form-control" %></td>
+        </tr>
+      </div>
+
     </tbody>
   </table>
 
@@ -18,3 +109,11 @@
   </div>
 
 <% end %>
+
+<script type="text/javascript">
+  $(function() {
+    $('.datepicker').datepicker({
+      dateFormat: 'yy-mm-dd'
+    });
+  });
+</script>

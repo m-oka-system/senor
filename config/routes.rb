@@ -13,7 +13,7 @@ Senor::Application.routes.draw do
       resources :tickets#, only: [:index]
     end
   end
-  #resources :tickets
+  resources :tickets, only: [:index]
 
 # ログイン画面をホームにする
   devise_scope :user do
