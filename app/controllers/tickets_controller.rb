@@ -4,7 +4,9 @@ class TicketsController < ApplicationController
 
   # Storeコントローラのshowアクションへ実装
   def index
-    @ticket = Ticket.all
+    # @ticket = Ticket.all
+    @q = Ticket.ransack(params[:q])
+    @ticket = @q.result(distinct: true)
   end
 
   def show
