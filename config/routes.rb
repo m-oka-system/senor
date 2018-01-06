@@ -13,6 +13,7 @@ Senor::Application.routes.draw do
       resources :tickets#, only: [:index]
     end
   end
+  resources :stores, only: [:index]
   resources :tickets, only: [:index]
 
 # ログイン画面をホームにする

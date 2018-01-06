@@ -28,14 +28,14 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-4">
-      <h2>問い合わせ履歴</h2>
-    </div>
     <div class="col-md-4 col-md-offset-4">
       <%= link_to "インシデントを登録する", new_customer_store_ticket_path(@customer, @store), class:"btn btn-lg btn-primary pull-right" %>
     </div>
+    <div class="col-md-4">
+      <%= link_to "インシデント一覧を表示する", tickets_path(@ticket), class:"btn btn-lg btn-primary pull-right" %>
+    </div>
   </div>
 
-    <%= render template: "tickets/index" %>
-    <%#= link_to "インシデント一覧", customer_store_tickets_path(@customer, @store) %>
+
+    <%#= render template: "tickets/index" %>
 </div>

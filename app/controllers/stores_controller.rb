@@ -1,16 +1,17 @@
 class StoresController < ApplicationController
 
-    before_action :authenticate_user!, :set_customer
+    before_action :authenticate_user!, :set_customer, except: [:index]
 
     def show
       @store = Store.find(params[:id])
-      @ticket = @store.tickets  #indexのviewへインシデント一覧を渡す
+      # @ticket = @store.tickets  #indexのviewへインシデント一覧を渡す
     end
 
-    # Customerコントローラのshowアクションへ実装
-    # def index
-    #   @store = @customer.stores
-    # end
+    def index
+      # @store = Store.all
+      @q = Store.ransack(params[:q])
+      @store = @q.result(distinct: true)
+    end
 
     def new
       @store = @customer.stores.build
