@@ -4,7 +4,6 @@
     <div class="form-group">
       <div class="form-inline">
         <%= f.label :customer_customer_name_cont, "会社名", class:"control-label" %>
-        <%#= f.search_field :customer_customer_name_cont, class:"form-control" %>
         <%= f.collection_select :customer_customer_name_cont, Customer.all, :customer_name, :customer_name, include_blank: true, class:"form-control" %>
       </div>
     </div>

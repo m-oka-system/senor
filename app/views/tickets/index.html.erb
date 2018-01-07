@@ -16,6 +16,8 @@
         <tr class="success">
           <th>インシデントID</th>
           <th>タイトル</th>
+          <th>会社名</th>
+          <th>店舗名</th>
           <th>ステータス</th>
           <th >受付日時</th>
           <th >受付者</th>
@@ -26,6 +28,8 @@
           <tr>
             <td><%= ticket.id %></td>
             <td><%= link_to ticket.title, customer_store_ticket_path(ticket.store.customer_id, ticket.store_id, ticket.id) %></td>
+            <td><%= ticket.store.customer.customer_name %></td>
+            <td><%= ticket.store.store_name %></td>
             <td><%= ticket.status %></td>
             <td><%= l ticket.receive_date, format: :default %></td>
             <td><%= ticket.received_user_id %></td>
