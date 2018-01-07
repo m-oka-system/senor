@@ -217,6 +217,8 @@ ja:
     fax_number: FAX番号
     url: HP
     image: 画像ファイル
+    created_at: 登録日時
+    updated_at: 更新日時
     # Storeモデル
     customer_id: 顧客ID
     store_code: 店舗コード

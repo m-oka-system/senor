@@ -10,7 +10,7 @@ class StoresController < ApplicationController
     def index
       # @store = Store.all
       @q = Store.ransack(params[:q])
-      @store = @q.result(distinct: true)
+      @store = @q.result(distinct: true).order("customer_id desc")
     end
 
     def new

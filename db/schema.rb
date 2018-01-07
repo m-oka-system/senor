@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180101041859) do
+ActiveRecord::Schema.define(version: 20180107061126) do
 
   create_table "customers", force: true do |t|
     t.string   "customer_name"
@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 20180101041859) do
     t.text     "remarks"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "tickets", force: true do |t|
