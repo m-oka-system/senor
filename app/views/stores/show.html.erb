@@ -16,9 +16,8 @@
         <li><%= @store.pos_type %></li>
         <li><%= @store.ip_address %></li>
         <li><%= @store.remarks %></li>
-        <li><%= @store.latitude %></li>
-        <li><%= @store.longitude %></li>
-        <li><%= "経度は#{@store.longitude}です" %></li>
+        <li id="latitude" data-latitude-id="<%= @store.latitude %>"><%= @store.latitude %></li>
+        <li id="longitude" data-longitude-id="<%= @store.longitude %>"><%= @store.longitude %></li>
       </ul>
     </div>
 
@@ -29,9 +28,11 @@
       <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDTL0X-TbmwRU0bHv4nCu91wSFn4D2bxsY&sensor=false&callback=init"></script>
       <script type="text/javascript">
       function init() {
-
+        // 緯度経度を取得
+        var latitude  = $('#latitude').data('latitude-id');
+        var longitude = $('#longitude').data('longitude-id');
       // 緯度経度の指定
-        var latlng = new google.maps.LatLng(35.6601301,139.6986372);
+        var latlng = new google.maps.LatLng(latitude,longitude);
 
         // マップの表示オプションを指定
         var options = {
