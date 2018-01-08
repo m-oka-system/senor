@@ -6,7 +6,7 @@
     <div class="form-group">
       <%= f.label :store_customer_customer_name_cont, "会社名", class:"control-label col-md-1 text-right" %>
       <div class="col-md-3">
-        <%= f.collection_select :store_customer_customer_name_cont, Customer.all, :customer_name, :customer_name, {include_blank: true}, {class:"form-control"} %>
+        <%= f.collection_select :store_customer_customer_name_cont, Customer.all.order("id desc"), :customer_name, :customer_name, {include_blank: true}, {class:"form-control"} %>
       </div>
 
       <%= f.label :store_store_name_cont, "店舗名", class:"control-label col-md-1 text-right" %>

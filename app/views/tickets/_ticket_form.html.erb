@@ -27,14 +27,14 @@
       <div class="form-group">
         <tr>
           <td class="active text-right"><%= f.label :received_user_id, class:"control-label" %></td>
-          <td><%= f.collection_select :received_user_id, User.all, :id, :name, class:"form-control" %></td>
+          <td><%= f.collection_select :received_user_id, User.all, :id, :name, {}, {class:"form-control"} %></td>
         </tr>
       </div>
 
       <div class="form-group">
         <tr>
           <td class="active text-right"><%= f.label :assign_user_id, class:"control-label" %></td>
-          <td><%= f.collection_select :assign_user_id, User.all, :id, :name, class:"form-control" %></td>
+          <td><%= f.collection_select :assign_user_id, User.all, :id, :name, {}, {class:"form-control"} %></td>
         </tr>
       </div>
 
@@ -48,7 +48,7 @@
       <div class="form-group">
         <tr>
           <td class="active text-right"><%= f.label :receive_time, class:"control-label" %></td>
-          <td><%= f.time_select :receive_time, class:"form-control" %></td>
+          <td ><%= f.time_select :receive_time, class:"form-control time_select" %></td>
         </tr>
       </div>
 
