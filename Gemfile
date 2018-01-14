@@ -11,6 +11,8 @@ gem 'jquery-ui-rails'
 gem 'ransack'
 gem "gmaps4rails"
 gem "geocoder"
+gem 'hirb'
+gem 'hirb-unicode'
 
 group :development do
   gem 'sqlite3', '1.3.9'
