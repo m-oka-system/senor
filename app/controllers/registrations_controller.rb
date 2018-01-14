@@ -30,7 +30,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   #アカウント編集ページ
   def account_update_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin)
   end
 
 end
