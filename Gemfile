@@ -3,16 +3,16 @@ ruby '2.0.0'
 
 gem 'rails', '4.0.5'
 gem 'bootstrap-sass', '3.3.1'
-gem 'devise', '3.4.1'
-gem 'toastr-rails'
-gem 'omniauth-facebook'
-gem 'carrierwave'
-gem 'jquery-ui-rails'
-gem 'ransack'
-gem "gmaps4rails"
-gem "geocoder"
-gem 'hirb'
-gem 'hirb-unicode'
+gem 'devise', '3.4.1' #ユーザー認証
+gem 'toastr-rails' #flashメッセージ
+gem 'omniauth-facebook' #Facebookログイン
+gem 'carrierwave' #画像アップローダー
+gem 'jquery-ui-rails' #datepickerのカレンダー入力
+gem 'ransack' #検索フォーム
+gem "gmaps4rails" #GoogleMaps
+gem "geocoder" #住所から緯度、経度を登録
+gem 'hirb' #rails consoleを表形式に表示
+gem 'hirb-unicode' #rails consoleを表形式に表示
 
 group :development do
   gem 'sqlite3', '1.3.9'

@@ -44,7 +44,7 @@ class StoresController < ApplicationController
     def destroy
       @store = Store.find(params[:id]).destroy
       flash[:success] = "店舗を削除しました。"
-      redirect_to @customer
+      redirect_to @store
     end
 
     private

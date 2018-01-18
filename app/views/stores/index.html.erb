@@ -16,12 +16,11 @@
           <th><%= sort_link(@q, :ip_address) %></th>
           <th><%= sort_link(@q, :remarks) %></th>
           <th><%= sort_link(@q, :created_at) %></th>
-          <th colspan="2"></th>
         </tr>
 
         <% @store.each do |store| %>
         <tr>
-          <td><%= store.customer.customer_name %></td>
+          <td><%= link_to store.customer.customer_name, customer_path(store.customer_id) %></td>
           <td><%= link_to store.store_code, customer_store_path(store.customer_id, store.id) %></td>
           <td><%= store.store_name %></td>
           <td><%= store.business_hours_start %></td>
@@ -30,20 +29,9 @@
           <td><%= store.ip_address %></td>
           <td><%= store.remarks %></td>
           <td><%= l store.created_at, format: :default %></td>
-
-          <!-- 管理者の場合は、編集・削除ボタンを表示 -->
-          <% if current_user.admin? %>
-            <td class="text-center">
-              <%= link_to '編集', edit_customer_store_path(store.customer_id, store.id), class: "btn btn-primary btn-xs" %>
-            </td>
-            <td class="text-center">
-              <%#= link_to '削除', [@customer, store], method: :delete, data: { confirm: '削除してもよろしいですか？' }, class: "btn btn-danger btn-xs" %>
-            </td>
-          <% else %>
-            <td></td>
-          <% end %>
         </tr>
         <% end %>
+
       </table>
     </div>
   </div>
