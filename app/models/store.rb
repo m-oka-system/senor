@@ -1,5 +1,5 @@
 class Store < ActiveRecord::Base
-  belongs_to :customer
+  belongs_to :customer, counter_cache: true
   has_many :tickets
 
   validates :store_code,  presence: true, length: { is: 6 }, uniqueness: {scope: :customer_id}

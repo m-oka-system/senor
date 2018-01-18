@@ -15,20 +15,20 @@
           <th><%= sort_link(@q, :pos_type) %></th>
           <th><%= sort_link(@q, :ip_address) %></th>
           <th><%= sort_link(@q, :remarks) %></th>
-          <th><%= sort_link(@q, :created_at) %></th>
+          <th><%= sort_link(@q, :tickets_count, "ｲﾝｼﾃﾞﾝﾄ件数") %></th>
         </tr>
 
         <% @store.each do |store| %>
         <tr>
           <td><%= link_to store.customer.customer_name, customer_path(store.customer_id) %></td>
           <td><%= link_to store.store_code, customer_store_path(store.customer_id, store.id) %></td>
-          <td><%= store.store_name %></td>
+          <td><%= link_to store.store_name, customer_store_path(store.customer_id, store.id) %></td>
           <td><%= store.business_hours_start %></td>
           <td><%= store.business_hours_end %></td>
           <td><%= store.pos_type %></td>
           <td><%= store.ip_address %></td>
           <td><%= store.remarks %></td>
-          <td><%= l store.created_at, format: :default %></td>
+          <td><%= store.tickets_count %></td>
         </tr>
         <% end %>
 

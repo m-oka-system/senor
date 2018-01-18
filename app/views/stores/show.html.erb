@@ -68,7 +68,7 @@
       <tr>
         <th class="active text-right">インシデント件数</th>
         <td>
-        <%= "#{@store.tickets.count} 件" %>
+        <%= @store.tickets.count %> 件
         <%= link_to "（インシデント一覧を表示する）", tickets_path %>
         </td>
       </tr>

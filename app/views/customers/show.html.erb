@@ -63,7 +63,7 @@
         <tr>
           <th class="active text-right">店舗数</th>
           <td>
-          <%= "#{@customer.stores.count} 店舗" %>
+          <%= @customer.stores_count %> 店舗
           <%= link_to "（店舗一覧を表示する）", stores_path(@customer) %>
           </td>
         </tr>

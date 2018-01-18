@@ -1,5 +1,5 @@
 class Ticket < ActiveRecord::Base
-  belongs_to :store
+  belongs_to :store, counter_cache: true
   belongs_to :received_user, foreign_key: "received_user_id", class_name: "User"
   belongs_to :assigned_user, foreign_key: "assign_user_id", class_name: "User"
   # belongs_to :user, foreign_key: "assigned_user_id"

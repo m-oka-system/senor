@@ -8,7 +8,9 @@ class CustomersController < ApplicationController
   end
 
   def index
-    @customer = Customer.all
+    # @customer = Customer.all
+    @q = Customer.ransack(params[:q])
+    @customer = @q.result(distinct: true)
   end
 
   def new

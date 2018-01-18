@@ -9,12 +9,13 @@
     <div class="table-responsive">
       <table class="table table-striped table-bordered table-hover">
         <tr class="success">
-          <th>ID</th>
-          <th>会社名</th>
-          <th>事業</th>
-          <th >電話番号</th>
-          <th >FAX番号</th>
-          <th >店舗数</th>
+          <!-- tメソッドでja.ymlからモデルの属性名を取得 -->
+          <th><%= sort_link(@q, :id) %></th>
+          <th><%= sort_link(@q, :customer_name) %></th>
+          <th><%= sort_link(@q, :business) %></th>
+          <th><%= sort_link(@q, :phone_number) %></th>
+          <th><%= sort_link(@q, :fax_number) %></th>
+          <th><%= sort_link(@q, :stores_count, "店舗数") %></th>
         </tr>
         <% @customer.each do |customer| %>
         <tr>

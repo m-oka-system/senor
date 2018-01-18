@@ -207,6 +207,7 @@ ja:
 # モデルのバリデーションエラーメッセージを日本語化
   attributes:
     # Customerモデル
+    id: ID
     customer_name: 会社名
     postal_code: 郵便番号
     business: 事業
