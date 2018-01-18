@@ -44,13 +44,13 @@
         <th class="active text-right col-md-3">受付日</th>
         <td class="col-md-3"><%= l @ticket.receive_date, format: :default %></td>
         <th class="active text-right col-md-3">受付時刻</th>
-        <td class="col-md-3"><%= l @ticket.receive_time, format: :default %></td>
+        <td class="col-md-3"><%= @ticket.receive_time.strftime('%H:%M:%S') %></td>
       </tr>
       <tr>
         <th class="active text-right col-md-3">完了日</th>
         <td class="col-md-3"><%= l @ticket.close_date, format: :default unless @ticket.close_date.nil? %></td>
         <th class="active text-right col-md-3">完了時刻</th>
-        <td class="col-md-3"><%= l @ticket.close_time, format: :default %></td>
+        <td class="col-md-3"><%= @ticket.close_time.strftime('%H:%M:%S') %></td>
       </tr>
       <tr>
         <th class="active text-right col-md-3">期日</th>
