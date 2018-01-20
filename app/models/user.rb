@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
-  has_many :tickets, foreign_key: "received_user_id"
-  has_many :tickets, foreign_key: "assigned_user_id"
+  has_many :received_tickets, foreign_key: "received_user_id", class_name: "Ticket"
+  has_many :assigned_tickets, foreign_key: "assign_user_id", class_name: "Ticket"
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
