@@ -1,7 +1,7 @@
 class CreateStores < ActiveRecord::Migration
   def change
     create_table :stores do |t|
-      t.string :customer_id
+      t.references :customer, null: false #外部キー
       t.string :store_code
       t.string :store_name
       t.string :postal_code

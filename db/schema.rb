@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20180118085137) do
   end
 
   create_table "stores", force: true do |t|
-    t.string   "customer_id"
+    t.integer  "customer_id",                      null: false
     t.string   "store_code"
     t.string   "store_name"
     t.string   "postal_code"
