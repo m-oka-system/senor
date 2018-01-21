@@ -50,11 +50,11 @@
         <th class="active text-right col-md-3">完了日</th>
         <td class="col-md-3"><%= l @ticket.close_date, format: :default unless @ticket.close_date.nil? %></td>
         <th class="active text-right col-md-3">完了時刻</th>
-        <td class="col-md-3"><%= @ticket.close_time.strftime('%H:%M:%S') %></td>
+        <td class="col-md-3"><%= @ticket.close_time.strftime('%H:%M:%S') unless @ticket.close_time.nil? %></td>
       </tr>
       <tr>
         <th class="active text-right col-md-3">期日</th>
-        <td class="col-md-3"><%= l @ticket.limit_date, format: :default unless @ticket.limit_date.nil? %></td>
+        <td class="col-md-3"><%= l @ticket.limit_date, format: :default %></td>
       </tr>
     </table>
   </div>

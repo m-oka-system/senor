@@ -17,15 +17,22 @@
           <th><%= sort_link(@q, :fax_number) %></th>
           <th><%= sort_link(@q, :stores_count, "店舗数") %></th>
         </tr>
-        <% @customer.each do |customer| %>
-        <tr>
-          <td><%= link_to customer.id, customer_path(customer) %></td>
-          <td><%= link_to customer.customer_name, customer_path(customer) %></td>
-          <td><%= customer.business %></td>
-          <td><%= customer.phone_number %></td>
-          <td><%= customer.fax_number %></td>
-          <td><%= customer.stores.count %></td>
-        </tr>
+        <!-- 件数が０件の時は「なし」を表示する -->
+        <% if @customer.empty? %>
+          <tr>
+            <td colspan="6">なし</td>
+          </tr>
+        <% else %>
+          <% @customer.each do |customer| %>
+            <tr>
+              <td><%= link_to customer.id, customer_path(customer) %></td>
+              <td><%= link_to customer.customer_name, customer_path(customer) %></td>
+              <td><%= customer.business %></td>
+              <td><%= customer.phone_number %></td>
+              <td><%= customer.fax_number %></td>
+              <td><%= customer.stores.count %></td>
+            </tr>
+          <% end %>
         <% end %>
       </table>
     </div>
